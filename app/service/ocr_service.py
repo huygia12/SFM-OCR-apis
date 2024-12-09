@@ -7,6 +7,7 @@ import re
 import requests
 import uuid
 import json
+from io import BytesIO
 from fastapi import HTTPException
 from app.core.ocr_config import get_vietocr_predictor
 
@@ -146,47 +147,26 @@ def get_extension_from_url(url):
     # Return the matched extension without the dot or None
     return matches.group(1) if matches else None
 
-def download_files(
-    downloading_urls, 
-    name_to_save, 
-    extension,
-    output_folder=DOWLOADED_FILES_DIR, 
-):
-    dowloaded_image_paths = []
+def get_files(downloading_urls):
+    images = []
     try:
-        counter = 1
         for url in downloading_urls:
             # Send a GET request to the URL
             response = requests.get(url, stream=True)
             response.raise_for_status()  # Raise an error if the request fails
 
-            # Construct the full path for the file
-            full_path = os.path.join(output_folder, f'{name_to_save}-{counter}.{extension}')
-            counter += 1
-
-            # Write the file to disk
-            with open(full_path, 'wb') as file:
-                for chunk in response.iter_content(chunk_size=8192):
-                    file.write(chunk)
-            
-            dowloaded_image_paths.append(full_path)
+            # Save image to memory (bytes array)
+            with BytesIO(response.content) as image_data:
+                # convert bytes array to OpenCV image
+                img_array = np.asarray(bytearray(image_data.read()), dtype=np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                
+                images.append(img)
     except requests.RequestException as e:
         raise HTTPException(status_code=404, detail=f'Download failed: {str(e)}')
     
-    return dowloaded_image_paths
+    return images
 
-def remove_files(image_paths):
-    for file_path in image_paths:
-        try:
-            os.remove(file_path)
-            print(f"File {file_path} deleted successfully.")
-        except FileNotFoundError:
-            print(f"File {file_path} not found.")
-        except PermissionError:
-            print(f"Permission denied to delete the file.")
-        except Exception as e:
-            print(f"Error occurred: {e}")
-    
 def scan_letter_by_letter(image_path, regions):
     text = ''
     for region_info in regions:
@@ -205,53 +185,45 @@ def get_checkbox_input(image, regions, brightness_threshold = 3):
     return entries
 
 async def do_ocr(image_urls, application_name):
-    image_id = str(uuid.uuid4())
-    extension = get_extension_from_url(image_urls[0])
+    images = get_files(image_urls)
 
-    dowloaded_image_paths = download_files(image_urls, image_id, extension)
+    schema_file_path = f"{OCR_SCHEMA_DIR}{application_name}.json"
+    with open(schema_file_path, 'r', encoding='utf-8') as file:
+        instruction = file.read()
 
-    try:
-        schema_file_path = f"{OCR_SCHEMA_DIR}{application_name}.json"
-        with open(schema_file_path, 'r', encoding='utf-8') as file:
-            instruction = file.read()
+    fields = json.loads(instruction)
+    ocr_output = []
 
-        fields = json.loads(instruction)
-        ocr_output = []
-
-        for field in fields:
-            image_path = f"{DOWLOADED_FILES_DIR}{image_id}-{field['page_number']}.{extension}"
-            image = cv2.imread(image_path);
-            if field['type'] == 'OCR_WORD':
-                region = field['regions'][0]['region']
-                ocr_text = retrieve_text(image, region)
-                ocr_output.append({
-                    'name': field['name'],
-                    'field_type': field['type'],
-                    'data_type': field['data_type'],
-                    'text': ocr_text,
-                    'correction': field['correction'],
-                })
-            elif field.type == 'OCR_CHAR':
-                ocr_text = scan_letter_by_letter(image, field['regions'])
-                ocr_output.append({
-                    'name': field['name'],
-                    'field_type': field['type'],
-                    'data_type': field['data_type'],
-                    'text': ocr_text,
-                    'correction': field['correction'],
-                })
-            elif file.type == 'CHECK_BOX':
-                entries = get_checkbox_input(image, field['regions'])
-                ocr_output.append({
-                    'name': field['name'],
-                    'field_type': field['type'],
-                    'data_type': field['data_type'],
-                    'text': entries,
-                    'correction': field['correction'],
-                })
-            
-        return ocr_output
-    finally:
-        remove_files(dowloaded_image_paths)
+    for field in fields:
+        image = images[int(field['page_number'])-1]
+        if field['type'] == 'OCR_WORD':
+            region = field['regions'][0]['region']
+            ocr_text = retrieve_text(image, region)
+            ocr_output.append({
+                'name': field['name'],
+                'field_type': field['type'],
+                'data_type': field['data_type'],
+                'text': ocr_text,
+                'correction': field['correction'],
+            })
+        elif field.type == 'OCR_CHAR':
+            ocr_text = scan_letter_by_letter(image, field['regions'])
+            ocr_output.append({
+                'name': field['name'],
+                'field_type': field['type'],
+                'data_type': field['data_type'],
+                'text': ocr_text,
+                'correction': field['correction'],
+            })
+        elif file.type == 'CHECK_BOX':
+            entries = get_checkbox_input(image, field['regions'])
+            ocr_output.append({
+                'name': field['name'],
+                'field_type': field['type'],
+                'data_type': field['data_type'],
+                'text': entries,
+                'correction': field['correction'],
+            })
+    return ocr_output
 
 init_directories();
