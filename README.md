@@ -26,5 +26,5 @@ uvicorn app.main:app --reload
 ```
 
 4. Access
-   - API document: [http://127.0.0.1:8000/api/v1/docs](http://127.0.0.1:8000/api/v1/docs)
+   - API document: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
    - Health check server: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/v1/health)
