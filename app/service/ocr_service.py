@@ -139,14 +139,6 @@ def init_directories():
     os.makedirs(OCR_OUTPUT_DIR, exist_ok=True)
     os.makedirs(DOWLOADED_FILES_DIR, exist_ok=True)
 
-def get_extension_from_url(url):
-    # Split the URL to separate the query parameters
-    image_path = url.split('?')[0]
-    # Match file extensions (jpg, jpeg, png, webp)
-    matches = re.search(r'\.(jpg|jpeg|png|webp?)$', image_path, re.IGNORECASE)
-    # Return the matched extension without the dot or None
-    return matches.group(1) if matches else None
-
 def get_files(downloading_urls):
     images = []
     try:
@@ -204,7 +196,6 @@ async def do_ocr(image_urls, application_name):
                 'field_type': field['type'],
                 'data_type': field['data_type'],
                 'text': ocr_text,
-                'correction': field['correction'],
             })
         elif field.type == 'OCR_CHAR':
             ocr_text = scan_letter_by_letter(image, field['regions'])
@@ -213,7 +204,6 @@ async def do_ocr(image_urls, application_name):
                 'field_type': field['type'],
                 'data_type': field['data_type'],
                 'text': ocr_text,
-                'correction': field['correction'],
             })
         elif file.type == 'CHECK_BOX':
             entries = get_checkbox_input(image, field['regions'])
@@ -222,7 +212,6 @@ async def do_ocr(image_urls, application_name):
                 'field_type': field['type'],
                 'data_type': field['data_type'],
                 'text': entries,
-                'correction': field['correction'],
             })
     return ocr_output
 

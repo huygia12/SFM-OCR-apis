@@ -1,0 +1,254 @@
+[
+  {
+    "name": "APPLICATION_DISTRICT_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1257,
+          498,
+          1026,
+          112
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_NAME",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          548,
+          1072,
+          788,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_PHONE_NUMBER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1676,
+          1074,
+          842,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_BIRTH_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          548,
+          1169,
+          786,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_GENDER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1571,
+          1171,
+          945,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CLASS",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          685,
+          1270,
+          649,
+          101
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_ID",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1547,
+          1270,
+          946,
+          101
+        ]
+      }
+    ]
+  },
+  {
+    "name": "COURSE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          447,
+          1368,
+          891,
+          94
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MAJOR",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1536,
+          1366,
+          957,
+          98
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PERMANENT_RESIDENT",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          751,
+          1467,
+          1759,
+          100
+        ]
+      }
+    ]
+  },
+  {
+    "name": "NATIVE_COUNTRY",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          537,
+          1559,
+          1983,
+          104
+        ]
+      }
+    ]
+  },
+  {
+    "name": "CONTENT",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          531,
+          1654,
+          1983,
+          104
+        ]
+      }
+    ]
+  }
+]

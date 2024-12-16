@@ -1,0 +1,391 @@
+[
+  {
+    "name": "APPLICATION_DISTRICT_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1291,
+          450,
+          976,
+          103
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_NAME",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          583,
+          940,
+          949,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_PHONE_NUMBER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1846,
+          942,
+          612,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MAJOR",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          524,
+          1029,
+          521,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CLASS",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1182,
+          1033,
+          340,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_ID",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1844,
+          1032,
+          593,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_BIRTH_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          873,
+          1117,
+          643,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_GENDER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1755,
+          1108,
+          699,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          602,
+          1194,
+          905,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION_VALID_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1764,
+          1193,
+          717,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION_ISSUED_LOCATION",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          550,
+          1279,
+          1901,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PERMANENT_RESIDENT",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          807,
+          1364,
+          1649,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PRONOUNCEMENT_NUMBER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": []
+  },
+  {
+    "name": "SIGNED_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1089,
+          1441,
+          225,
+          78
+        ]
+      }
+    ]
+  },
+  {
+    "name": "RESERVED_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1284,
+          1520,
+          197,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "RESERVED_MONTH",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          760,
+          1602,
+          83,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "CONTINUE_STUDY_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          255,
+          1764,
+          285,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "SEMESTER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          730,
+          1768,
+          41,
+          86
+        ]
+      }
+    ]
+  },
+  {
+    "name": "SCHOOL_YEAR",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          971,
+          1769,
+          226,
+          76
+        ]
+      }
+    ]
+  }
+]

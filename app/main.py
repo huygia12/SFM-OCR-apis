@@ -5,7 +5,7 @@ from .api import health, ocr
 from .core import settings
 
 app = FastAPI(
-    title=settings.PROJECT_NAME,
+    title="SFM_OCR_apis",
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
 )
 

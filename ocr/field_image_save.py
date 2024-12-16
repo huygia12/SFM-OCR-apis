@@ -36,7 +36,7 @@ def save_fields_as_images(base_source_path, base_output_path, schema_file):
             page_number = field['page_number']
             field_regions = field['regions']
 
-            image_path = base_source_path + str(page_number) + '.png'
+            image_path = base_source_path + str(page_number) + '.jpg' #alter this
             image = Image.open(image_path)
 
             for regionInfo in field_regions:
@@ -53,7 +53,7 @@ For debugging purposes only
 Crop all regions that is specified in the -schema.json
 '''
 if __name__ == '__main__':
-    application_name='drop-out-school-application'
+    application_name='reissued-student-health-insurrance-application' #alter this
     output_path = 'debug/'
 
     init_out_folder(output_path)
@@ -66,6 +66,6 @@ if __name__ == '__main__':
             os.remove(file_path)
 
     # images_dir = 'temp/' + application_name + '/'
-    images_dir = 'temp2/'
+    images_dir = 'base-form/' + application_name + '/' #alter this
     schema_file = 'schema/' + application_name + '.json'
     save_fields_as_images(images_dir, output_path, schema_file)

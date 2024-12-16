@@ -1,0 +1,254 @@
+[
+  {
+    "name": "APPLICATION_DISTRICT_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1256,
+          537,
+          1037,
+          107
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_NAME",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          600,
+          1105,
+          910,
+          98
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_PHONE_NUMBER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1868,
+          1096,
+          561,
+          103
+        ]
+      }
+    ]
+  },
+  {
+    "name": "MAJOR",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          531,
+          1207,
+          509,
+          98
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CLASS",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1183,
+          1207,
+          336,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_ID",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1868,
+          1209,
+          565,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_BIRTH_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          908,
+          1308,
+          602,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_GENDER",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1775,
+          1313,
+          602,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          620,
+          1406,
+          878,
+          96
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION_VALID_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1803,
+          1397,
+          653,
+          112
+        ]
+      }
+    ]
+  },
+  {
+    "name": "STUDENT_CITIZEN_IDENTIFICATION_ISSUED_LOCATION",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          572,
+          1516,
+          1868,
+          112
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PERMANENT_RESIDENT",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          838,
+          1614,
+          1605,
+          112
+        ]
+      }
+    ]
+  }
+]

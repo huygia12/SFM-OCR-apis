@@ -92,7 +92,7 @@ region.txt file note: notice that field-line and region-line must not start with
     DUMMY,DUMMY,-1,DUMMY,DUMMY:
 '''
 if __name__ == "__main__":
-    application_name = 'drop-out-school-application'
+    application_name = 'reissued-student-health-insurrance-application' #alter this
 
     source_file = 'region/' + application_name + '.txt'
     json_file = 'schema/' + application_name + '.json'
