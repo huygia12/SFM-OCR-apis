@@ -1,5 +1,26 @@
 [
   {
+    "name": "APPLICATION_DISTRICT_DATE",
+    "type": "OCR_WORD",
+    "page_number": "1",
+    "data_type": "STRING",
+    "correction": {
+      "type": "NONE",
+      "details": ""
+    },
+    "regions": [
+      {
+        "index": 0,
+        "region": [
+          1254,
+          466,
+          1000,
+          140
+        ]
+      }
+    ]
+  },
+  {
     "name": "STUDENT_NAME",
     "type": "OCR_WORD",
     "page_number": "1",
@@ -96,10 +117,10 @@
       {
         "index": 0,
         "region": [
-          1842,
-          1116,
-          535,
-          90
+          1831,
+          1117,
+          638,
+          86
         ]
       }
     ]
@@ -252,7 +273,7 @@
     ]
   },
   {
-    "name": "PARENT_PHONE_NUMMBER",
+    "name": "PARENT_PHONE_NUMBER",
     "type": "OCR_WORD",
     "page_number": "1",
     "data_type": "STRING",
@@ -273,7 +294,7 @@
     ]
   },
   {
-    "name": "CURRENT_RESIDENT",
+    "name": "PARENT_CURRENT_RESIDENT",
     "type": "OCR_WORD",
     "page_number": "1",
     "data_type": "STRING",
@@ -307,9 +328,9 @@
         "index": 0,
         "region": [
           1584,
-          1685,
-          757,
-          80
+          1686,
+          890,
+          86
         ]
       }
     ]
@@ -327,10 +348,10 @@
       {
         "index": 0,
         "region": [
-          695,
-          1785,
-          1644,
-          80
+          693,
+          1764,
+          1761,
+          96
         ]
       }
     ]

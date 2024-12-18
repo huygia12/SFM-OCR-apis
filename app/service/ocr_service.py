@@ -14,8 +14,8 @@ from app.core.ocr_config import get_vietocr_predictor
 detector = get_vietocr_predictor()
 
 OCR_SCHEMA_DIR = 'ocr/schema/';
+OCR_BASE_FORM_DIR = 'ocr/base-form/';
 DOWLOADED_FILES_DIR = 'form-images/';
-OCR_OUTPUT_DIR = 'ocr/ocr-output/';
 
 def align_image(image, template, maxFeatures=500, keepPercent=0.2,
     debug=False):
@@ -94,7 +94,7 @@ def sharpen_image(image):
     result_norm_planes = []
     for plane in rgb_planes:
         dilated_img = cv2.dilate(plane, np.ones((7,7), np.uint8))
-        bg_img = cv2.medianBlur(dilated_img, 21)
+        bg_img = cv2.medianBlur(dilated_img, 11)
         diff_img = 255 - cv2.absdiff(plane, bg_img)
         norm_img = cv2.normalize(diff_img,None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
         result_norm_planes.append(norm_img)
@@ -102,7 +102,9 @@ def sharpen_image(image):
     result_norm = cv2.merge(result_norm_planes)
     # tranform: convert into gray single channel
     gray_image = cv2.cvtColor(result_norm, cv2.COLOR_BGR2GRAY)
-    _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    enhanced_image = clahe.apply(gray_image)
+    _, binary_image = cv2.threshold(enhanced_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
     return binary_image
 
@@ -124,6 +126,13 @@ def calculate_average_brightness(image, region):
         print('[ocr-service]: read file fail:', e)
         return None
 
+def post_process_text(text):
+    blacklist = ["Contransitionalists"]
+    if text in blacklist:
+        return ""
+
+    return text
+
 def retrieve_text(image, region):
     # Crop the region
     left, top, width, height = region
@@ -133,10 +142,10 @@ def retrieve_text(image, region):
     cropped_pil = Image.fromarray(cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB))
 
     text = detector.predict(cropped_pil)
+    text = post_process_text(text)
     return text
 
 def init_directories():
-    os.makedirs(OCR_OUTPUT_DIR, exist_ok=True)
     os.makedirs(DOWLOADED_FILES_DIR, exist_ok=True)
 
 def get_files(downloading_urls):
@@ -176,18 +185,32 @@ def get_checkbox_input(image, regions, brightness_threshold = 3):
             entries.append(region_info['entry'])
     return entries
 
-async def do_ocr(image_urls, application_name):
+async def do_ocr(image_urls, application_name, debug=True):
+    # get image files from urls
     images = get_files(image_urls)
 
+    processed_images = []
+    counter = 1;
+    for image in images:
+        template_path = f"{OCR_BASE_FORM_DIR}{application_name}/{counter}.jpg"
+        template = cv2.imread(template_path)
+        aligned_image = align_image(image, template)
+        sharpened_image = sharpen_image(aligned_image)
+        if debug:
+            cv2.imwrite(f"{DOWLOADED_FILES_DIR}{counter}.jpg", sharpened_image)
+        processed_images.append(sharpened_image)
+        counter = counter + 1;
+
+    # Load the OCR schema from JSON file
     schema_file_path = f"{OCR_SCHEMA_DIR}{application_name}.json"
     with open(schema_file_path, 'r', encoding='utf-8') as file:
         instruction = file.read()
-
     fields = json.loads(instruction)
+
     ocr_output = []
 
     for field in fields:
-        image = images[int(field['page_number'])-1]
+        image = processed_images[int(field['page_number'])-1]
         if field['type'] == 'OCR_WORD':
             region = field['regions'][0]['region']
             ocr_text = retrieve_text(image, region)

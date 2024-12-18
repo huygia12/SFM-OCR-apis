@@ -53,7 +53,7 @@ For debugging purposes only
 Crop all regions that is specified in the -schema.json
 '''
 if __name__ == '__main__':
-    application_name='reissued-student-health-insurrance-application' #alter this
+    application_name = 'continue-study-application' #alter this
     output_path = 'debug/'
 
     init_out_folder(output_path)
@@ -65,7 +65,6 @@ if __name__ == '__main__':
             file_path = os.path.join(folder_path, file)
             os.remove(file_path)
 
-    # images_dir = 'temp/' + application_name + '/'
-    images_dir = 'base-form/' + application_name + '/' #alter this
+    images_dir = '../form-images/' #alter this
     schema_file = 'schema/' + application_name + '.json'
     save_fields_as_images(images_dir, output_path, schema_file)
